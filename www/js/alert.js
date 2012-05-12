@@ -17,9 +17,9 @@
     //
     function showAlert() {
         navigator.notification.alert(
-            'You are the winner!',  // message
+            'This will alert you of upcoming auto service intervals!',  // message
             alertDismissed,         // callback
-            'Game Over',            // title
+            'Oil Change Due NOW!',            // title
             'Done'                  // buttonName
         );
     }
