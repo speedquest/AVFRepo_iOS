@@ -1,42 +1,25 @@
-    document.addEventListener("deviceready", onDeviceReady, false);
+// Wait for PhoneGap to load
+//
+document.addEventListener("deviceready", onDeviceReady, false);
 
-    // Cordova is ready
-    //
-    function onDeviceReady() {
-        startWatch();
-    }
+// PhoneGap is ready
+//
+function onDeviceReady() {
+    navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+}
 
-    // Start watching the acceleration
-    //
-    function startWatch() {
+// onSuccess: Get a snapshot of the current acceleration
+//
+function onSuccess(acceleration) {
+    alert('Acceleration X: ' + acceleration.x + '\n' +
+          'Acceleration Y: ' + acceleration.y + '\n' +
+          'Acceleration Z: ' + acceleration.z + '\n' +
+          'Timestamp: '      + acceleration.timestamp + '\n');
+}
 
-        // Update acceleration every 3 seconds
-        var options = { frequency: 3000 };
+// onError: Failed to get the acceleration
+//
+function onError() {
+    alert('onError!');
+}
 
-        watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
-    }
-
-    // Stop watching the acceleration
-    //
-    function stopWatch() {
-        if (watchID) {
-            navigator.accelerometer.clearWatch(watchID);
-            watchID = null;
-        }
-    }
-
-    // onSuccess: Get a snapshot of the current acceleration
-    //
-    function onSuccess(acceleration) {
-        var element = document.getElementById('accelerometer');
-        element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +
-                            'Acceleration Y: ' + acceleration.y + '<br />' +
-                            'Acceleration Z: ' + acceleration.z + '<br />' +
-                            'Timestamp: '      + acceleration.timestamp + '<br />';
-    }
-
-    // onError: Failed to get the acceleration
-    //
-    function onError() {
-        alert('onError!');
-    }
