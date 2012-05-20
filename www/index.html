@@ -79,6 +79,7 @@ HTML FILE
                 <li><a href="#accelPage">Accelerometer</a></li>
                 <li><a href="#cameraPage">Camera</a></li>
                 <li><a href="#compassPage">Compass</a></li>
+                <li><a href="#mediaPage">Record Media</a></li>
             </ul>
         </div>
         <div data-role="footer" data-theme="d" data-position="fixed"
@@ -276,7 +277,7 @@ HTML FILE
             <h1>COMPASS</h1>
         </div>
         <div data-role="content" align="center">
-            
+            <div id="accelerometer">Waiting for Compass...</div>
         </div>
         <div data-role="footer" data-theme="d" data-position="fixed"
             align="center">
@@ -284,7 +285,27 @@ HTML FILE
         </div>
     </div>
 
+    <!-- MEDIA PAGE -->
     
+    <div data-role="page" id="mediaPage" data-theme="d">
+        <div data-role="header" data-position="fixed">
+            <center>
+                <img src="images/logbook_header_logo.png" alt="">
+                    </center>
+            <h1>Record a Note</h1>
+        </div>
+        <div data-role="content" align="center">
+            <input type="button" value="Capture Audio"
+            onclick="captureAudio()" />
+            <input type="button" value="Capture Video"
+            onclick="captureVideo()" />
+        </div>
+        
+        <div data-role="footer" data-theme="d" data-position="fixed"
+            align="center">
+            <a href="#home" data-icon="home">Home</a>
+        </div>
+    </div>
 	<!-- JavaScript under here -->
 	<script	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
@@ -294,6 +315,7 @@ HTML FILE
     <!-- <script src="js/geolocator.js" type="text/javascript"></script> -->
     <!-- <script src="js/camera.js" type="text/javascript"></script> -->
     <script src="js/alert.js" type="text/javascript"></script>
+    <script src="js/media.js" type="text/javascript"></script>
     <!-- <script src="js/accel.js" type="text/javascript"></script> -->
 </body>
 </html>
